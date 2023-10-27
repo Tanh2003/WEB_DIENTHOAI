@@ -1,40 +1,21 @@
-import Dashboard from './Components/DashBoard';
-import NavbarAdmin from './Components/NavbarAdmin';
-import SidebarAdmin from './Components/SidebarAdmin';
-import Tablene from "./CRUD_User/Tablene";
-import UserManage from './CRUD_User/UserManage';
+import NavbarAdmin from "./Components/NavbarAdmin";
+import SidebarAdmin from "./Components/SidebarAdmin";
+import UserManage from "./CRUD_User/UserManage";
 
+export const IndexAdmin = () => {
+  return (
+    <>
+      <NavbarAdmin />
 
-export const IndexAdmin=()=>{
- 
-            return(
-          
-           
-              <div >
-         
-                <NavbarAdmin/>
-        
-               
-             
-              
-             
-             
-              <div className="row container-fluid">
-              <SidebarAdmin/>
-             
-               <div className="col row-offcanvas row-offcanvas-left">
-              
-              <UserManage/>
-               
-              
-           </div>
-          </div>  
-      </div>  
+      <div className="row container-fluid">
+        <SidebarAdmin />
 
-            );
-
-        
-
-        }
+        <div className="col row-offcanvas row-offcanvas-left">
+          {/* <UserManage /> */}
+        </div>
+      </div>
+    </>
+  );
+};
 
 export default IndexAdmin;
