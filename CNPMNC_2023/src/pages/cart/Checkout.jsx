@@ -13,21 +13,21 @@ export const Order = () => {
             <label>Họ và tên </label>
           </div>
           <div className="input-data">
-            <input type="number" id="name" required />
+            <input type="text" id="phone" required />
             <div className="underline"></div>
             <label>Số điện thoại </label>
           </div>
           <div class="input-data">
-            <input type="text" id="text" required />
+            <input type="text" id="address" required />
             <div className="underline"></div>
             <label>Địa Chỉ Giao Hàng</label>
           </div>
-          <div class="input-data">
+          {/* <div class="input-data">
             <select name="" id="">
               <option value="1">Thanh toán bằng tiền mặt</option>
               <option value="2">Thanh toán bằng thẻ ngân hàng</option>
             </select>
-          </div>
+          </div> */}
           <button type="submit">Tiếp tục</button>
         </div>
       </div>

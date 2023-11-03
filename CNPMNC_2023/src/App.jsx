@@ -104,44 +104,62 @@ function App() {
               <Footer />
             </Route>
             <Route path="/login-signup/Login" exact>
+              <Header cartItem={cartItem} />
               <Login />
+              <Footer />
             </Route>
             <Route path="/login-signup/Signup" exact>
+              <Header cartItem={cartItem} />
               <Signup />
+              <Footer />
             </Route>
             <Route path="/cart/Cart" exact>
+              <Header cartItem={cartItem} />
               <Cart
                 cartItem={cartItem}
                 addToCart={addToCart}
                 decreaseQty={decreaseQty}
               />
+              <Footer />
             </Route>
             <Route path="/profile/Profile" exact>
+              <Header cartItem={cartItem} />
               <Profile />
+              <Footer />
             </Route>
             <Route path="/profile/ProfileUpdate" exact>
+              <Header cartItem={cartItem} />
               <ProfileUpdate />
+              <Footer />
             </Route>
             <Route path="/profile/ChangePassword" exact>
+              <Header cartItem={cartItem} />
               <ChangePassword />
+              <Footer />
             </Route>
             <Route path="/cart/Checkout" exact>
+              <Header cartItem={cartItem} />
               <Order
                 cartItem={cartItem}
                 addToCart={addToCart}
                 decreaseQty={decreaseQty}
               />
+              <Footer />
             </Route>
             <Route path="/productdetail/:id">
+              <Header cartItem={cartItem} />
               <ProductDetail
                 productItems={productItems}
                 addToCart={addToCart}
               />
+              <Footer />
             </Route>
             <Route path="/products">
+              <Header cartItem={cartItem} />
               <Products productItems={productItems} addToCart={addToCart} />
             </Route>
             <Route path="/phone">
+              <Header cartItem={cartItem} />
               <Phone phoneItems={phoneItems} addToCart={addToCart} />
             </Route>
           </Switch>

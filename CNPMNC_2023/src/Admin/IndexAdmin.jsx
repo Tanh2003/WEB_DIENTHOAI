@@ -24,9 +24,14 @@ export const IndexAdmin = () => {
             <div className="col-md-12">
               <div className="f-index">
                 <div className="tabular--wrapper">
-                  <a href="#">
-                    <h2 className="h2--title">Title</h2>
-                  </a>
+                  <div className="d_flex title-admin">
+                    <a href="">
+                      <button className="btn-createnew">
+                        <i class="fa-regular fa-solid fa-plus"></i>
+                      </button>
+                    </a>
+                      <h2>Title</h2>
+                  </div>
                   <div className="table-container">
                     <table>
                       <tr>

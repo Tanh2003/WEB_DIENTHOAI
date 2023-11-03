@@ -1,6 +1,11 @@
-.h2--title {
-  text-align: center;
+.title-admin button {
   padding-top: 8px;
+}
+.title-admin h2 {
+  text-align: center;
+  width: 100%;
+  font-size: 28px;
+  font-weight: 800;
 }
 .sidebar {
   position: sticky;
@@ -22,14 +27,6 @@
   transition: 0.5s;
 }
 
-.logo {
-  height: 15px;
-  position: relative;
-  list-style: none;
-  padding: 0.9rem;
-  margin: 6px 0;
-}
-
 .menu {
   height: 88%;
   position: relative;
@@ -42,11 +39,6 @@
   margin: 8px 0;
   border-radius: 8px;
   transition: all 0.5s ease-in-out;
-}
-
-.menu li:hover,
-.active {
-  background: #e0e0e058;
 }
 
 .menu a {
@@ -468,20 +460,20 @@ tfoot {
   min-height: 600px;
 }
 /* --user----- */
-.page_admin h1{
-    padding: 8px;
+.page_admin h1 {
+  padding: 8px;
 }
-.username_logout{
-    padding: 10px;
-    text-align: center;
-    color: #fff;
+.username_logout {
+  padding: 10px;
+  text-align: center;
+  color: #fff;
 }
-.username_logout h3{
-    padding: 8px;
-    text-align: center;
-    color: #fff;
+.username_logout h3 {
+  padding: 8px;
+  text-align: center;
+  color: #fff;
 }
-.username_logout a{
-    padding: 8px;
-    color: #fff;
+.username_logout a {
+  padding: 8px;
+  color: #fff;
 }

@@ -14,17 +14,18 @@ export const Cart = ({ cartItem, addToCart, decreaseQty }) => {
       currency: "VND",
       minimumFractionDigits: 0, // Loại bỏ phần thập phân
     });
-
     // Lấy chuỗi đã định dạng số
     const formattedNumber = formatter.format(number);
-
     // Loại bỏ khoảng trắng giữa số và đơn vị tiền tệ (₫)
     return formattedNumber.replace(/\s/g, "");
   }
   return (
     <>
-      <section className="cart-items">
-        <div className="container title">
+      <section className="cart-items ">
+        <div className="container title ">
+          <Link to={"../phone"}>
+            <button>Tiếp tục mua hàng</button>
+          </Link>
           <h1>Giỏ hàng</h1>
         </div>
         <div className="container d_flex">
@@ -43,10 +44,8 @@ export const Cart = ({ cartItem, addToCart, decreaseQty }) => {
                   </div>
                   <div className="cart-details">
                     <h3>{item.name}</h3>
-                    <h4>
-                      {formatCurrency(item.price)} * {item.qty}
-                      <span>{formatCurrency(productQty)}</span>
-                    </h4>
+                    <h5>Giá: {formatCurrency(item.price)}</h5>
+                    <h4>{formatCurrency(productQty)}</h4>
                   </div>
                   <div className="cart-items-function">
                     <div className="removeCart">
@@ -62,6 +61,7 @@ export const Cart = ({ cartItem, addToCart, decreaseQty }) => {
                       >
                         <i className="fa-solid  fa-minus"></i>
                       </button>
+                      <span>{item.qty}</span>
                       <button
                         className="incCart"
                         onClick={() => addToCart(item)}
@@ -80,9 +80,11 @@ export const Cart = ({ cartItem, addToCart, decreaseQty }) => {
               <h4>Tổng thanh toán: </h4>
               <h3>{formatCurrency(totalPrice)}</h3>
             </div>
-            <Link to={"./Checkout"}>
-              <button>Tiến hành đặt hàng</button>
-            </Link>
+            <div>
+              <Link to={"./Checkout"}>
+                <button>Tiến hành đặt hàng</button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

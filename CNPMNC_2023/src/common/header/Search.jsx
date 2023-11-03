@@ -35,22 +35,28 @@ export const Search = ({ cartItem }) => {
               </Link>
             </div>
             <div
-              className="login"
+              className="login user_"
               onClick={() => {
                 setOpen(!open);
               }}
             >
               <i className="fa fa-user icon-circle"></i>
-            </div>
-            <div className={`dropdown-menu ${open ? "active" : "inactive"}`}>
-              <h3>Tuan Tuong</h3>
-              <ul>
-                <Link to="/profile/Profile">
-                  <DropdownItem img={user} text={"Trang cá nhân"} />
-                </Link>
-                {/* <DropdownItem img={edit} text={"Edit Profile"} /> */}
-                <DropdownItem img={logout} text={"Đăng xuất"} />
-              </ul>
+              <div className="user_">
+                <div
+                  className={`dropdown-menu ${open ? "active" : "inactive"}`}
+                >
+                  <h3>Tuan Tuong</h3>
+                  <ul>
+                    <Link to="/profile/Profile">
+                      <DropdownItem img={user} text={"Trang cá nhân"} />
+                    </Link>
+                    {/* <DropdownItem img={edit} text={"Edit Profile"} /> */}
+                    <Link>
+                      <DropdownItem img={logout} text={"Đăng xuất"} />
+                    </Link>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
