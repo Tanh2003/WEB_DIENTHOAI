@@ -9,9 +9,9 @@ export const FlashDeals = ({ productItems, addToCart }) => {
       <section className="flash background">
         <div className="container">
           <div className="heading f_flex">
-            <div className="heading-left row">
+            <div className="heading-left">
               <h1>
-                Điện thoại bán chạy nhất hiện nay
+                ĐIỆN THOẠI NỔI BẬT NHẤT
                 {/* <i className="fa fa-bolt"></i> */}
               </h1>
             </div>

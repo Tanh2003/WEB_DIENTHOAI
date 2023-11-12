@@ -4,6 +4,9 @@
   margin: 0;
   box-sizing: border-box;
 }
+*, :after, :before {
+  box-sizing: inherit;
+}
 html {
   scroll-behavior: smooth;
 }
@@ -139,7 +142,7 @@ button {
   background: #e94560;
   padding: 3px 10px;
   font-size: 12px;
-  border-radius: 50px;
+  border-radius: 30px;
   color: #fff;
   margin: 10px;
 }

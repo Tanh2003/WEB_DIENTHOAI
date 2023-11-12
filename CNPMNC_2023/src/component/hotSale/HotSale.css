@@ -1,0 +1,73 @@
+.product-details h3 {
+  padding: 10px 0px 0px 0px;
+}
+.backgroundHotSale {
+  background: rgb(149, 9, 9);
+  border-radius: 20px;
+}
+.block-hot-sale {
+  border-radius: 16px;
+  margin: 0 0 15px;
+  min-height: 350px;
+  padding: 2px;
+}
+
+.c_b {
+  color: black;
+  padding-right: 8px;
+}
+.title1 {
+  font-weight: 600;
+}
+.time {
+  background: #fff;
+  border-radius: 3px;
+  color: #222;
+  font-size: 14px;
+  font-weight: 700;
+  height: 20px;
+  padding: 2px 5px;
+  text-align: center;
+  width: 20px;
+}
+.separate {
+  line-height: 26px;
+  margin: 0 5px;
+}
+.box-countdown {
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+}
+.box-time {
+  display: block;
+  float: left;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: right;
+}
+.box-tab-menu {
+  padding: 8px 0 0 8px;
+}
+.box-tab-item {
+  background-color: #fff;
+  border-radius: 7px;
+  color: #000;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  margin-right: 10px;
+  padding: 4px 10px;
+}
+.box-tab-item.active {
+  background-color: #111;
+  color: #fff;
+}
+.box-tab-item.deactive {
+  cursor: not-allowed;
+  opacity: .3;
+  pointer-events: none
+}
