@@ -68,18 +68,22 @@ export const Login = (props) => {
             <label>Tài khoản </label>
           </div>
           <div
-            className="input-data"
+            className="input-data d_flex"
             value={password}
             onChange={handleOnChangePassword}
           >
-            <input type={isShowPassword ? "text" : "password"} required />
-            <span onClick={handleShowHidePassword}>
+           <div className="w-100">
+             <input type={isShowPassword ? "text" : "password"} required />
+             <div className="underline"></div>
+            <label>Mật khẩu </label>
+           </div>
+            <div className="">
+               <span onClick={handleShowHidePassword}>
               <i
                 className={isShowPassword ? "fas fa-eye" : "fas fa-eye-slash"}
               ></i>
-            </span>
-            <div className="underline"></div>
-            <label>Mật khẩu </label>
+              </span>
+            </div>
           </div>
           <div className="col-12" style={{ color: "red" }}>
             {errMessage}

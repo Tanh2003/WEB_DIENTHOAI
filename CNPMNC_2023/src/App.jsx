@@ -21,6 +21,7 @@ import { ChangePassword } from "./pages/profile/ChangePassword";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { IndexAdmin } from "../src/Admin/IndexAdmin";
+import CreateProduct from "./Admin/Create/CreateProduct";
 function App() {
   //step 1: fetch data from DB
   const { productItems } = Data;
@@ -85,6 +86,9 @@ function App() {
                 pauseOnHover
                 theme="colored"
               />
+            </Route>
+            <Route path="/create/CreateProduct" exact>
+              <CreateProduct/>
             </Route>
           </Switch>
         </Router>

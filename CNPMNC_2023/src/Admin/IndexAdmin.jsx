@@ -1,9 +1,9 @@
 import NavbarAdmin from "./Components/NavbarAdmin";
-import SidebarAdmin from "./Components/SidebarAdmin";
 import UserManage from "./CRUD_User/UserManage";
-import "./Admin.css";
-import { DashBoard } from "./Components/DashBoard";
-import { Header } from "./Components/Header";
+import "./Admin.scss";
+import { HeaderAdmin } from "./Components/HeaderAdmin";
+import { Link } from "react-router-dom";
+import { SideBarAdmin } from "./Components/SideBarAdmin";
 export const IndexAdmin = () => {
   return (
     <>
@@ -16,21 +16,23 @@ export const IndexAdmin = () => {
           <UserManage />
         </div>
       </div> */}
-      <div className="d_flex">
-        <DashBoard />
-        <div className="main--content">
-          <Header />
-          <div className="row">
+      <div className="index-admin">
+        <HeaderAdmin />
+        <div className="main--content d_flex">
+          <div>
+            <SideBarAdmin />
+          </div>
+          <div className="row main-wrapper">
             <div className="col-md-12">
               <div className="f-index">
                 <div className="tabular--wrapper">
                   <div className="d_flex title-admin">
-                    <a href="">
+                    <Link to={`/create/CreateProduct`}>
                       <button className="btn-createnew">
                         <i class="fa-regular fa-solid fa-plus"></i>
                       </button>
-                    </a>
-                      <h2>Title</h2>
+                    </Link>
+                    <h2>Title</h2>
                   </div>
                   <div className="table-container">
                     <table>

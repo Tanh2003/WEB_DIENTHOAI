@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Header = () => {
+export const HeaderAdmin = () => {
   return (
     <>
       <div className="head d_flex">

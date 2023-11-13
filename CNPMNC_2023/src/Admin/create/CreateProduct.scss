@@ -1,0 +1,77 @@
+.create-wrapper{
+    div {
+        border-radius: 5px;
+      }
+    .p-10{
+        padding: 10px;
+    }
+    .login-container {
+        width: 580px;
+        height: auto;
+        background: white;
+        padding: 40px 60px;
+      }
+      
+      input,
+      select {
+        width: 100%;
+        padding: 12px 20px;
+        margin-top: 5px;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+      .sanpham {
+        width: 100%;
+        display: inline-block;
+        background: white;
+      }
+      .gia {
+        width: 60%;
+        display: inline-block;
+        background: white;
+      }
+      .sl {
+        width: 33%;
+        display: inline-block;
+        background: white;
+      }
+      .loai {
+        width: 45%;
+        display: inline-block;
+        background: white;
+      }
+      .anh{   
+        width: 45%;
+        display: inline-block;
+        background: white;
+    }
+      
+       
+      .loai select {
+        width: 100%;
+        padding: 12px 20px;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+      .button {
+        background-color: #f44336;
+        color: black;
+        border: 1px solid #333;
+        border-radius: 10px;
+        width: 30%;
+      }
+      
+      .button:hover {
+        border: 1px solid #333;
+        background-color: #04aa6d;
+      }
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+      
+
+}
