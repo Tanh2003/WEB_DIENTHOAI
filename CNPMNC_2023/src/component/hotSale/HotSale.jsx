@@ -20,7 +20,7 @@ export const HotSale = ({ productItems, addToCart }) => {
               />
             </div>
             <div className="heading-right row box-countdown">
-              <p className="c_b title1">Kết thúc sau: </p>
+             <p className="c_b title1 d_flex">Kết thúc sau: </p>
               <ul className="box-time d_flex">
                 <li className="d_flex">
                   <p className="time">00</p>
@@ -34,7 +34,7 @@ export const HotSale = ({ productItems, addToCart }) => {
                   <p className="time">00</p>
                   <p className="separate">:</p>
                 </li>
-                <li className="d_flex">
+                <li>
                   <p className="time">00</p>
                 </li>
               </ul>

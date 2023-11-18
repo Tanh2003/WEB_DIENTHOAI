@@ -16,14 +16,16 @@ const CreateProduct = () => {
             <label htmlFor="Name">Tên sản phẩm</label>
             <input type="text" id="TenSP" name="TenSP"></input>{" "}
           </div>
-          <div className="gia p-10">
-            <label htmlFor="Hoten">Giá</label>
-            <input type="text" id="Gia" name="Gia"></input>
-          </div>
+          <div className="d_flex">
+            <div className="gia p-10">
+              <label htmlFor="Hoten">Giá</label>
+              <input type="text" id="Gia" name="Gia"></input>
+            </div>
 
-          <div className="sl p-10">
-            <label htmlFor="Password">Số lượng</label>
-            <input type="text" id="SoLuong" name="SoLuong"></input>
+            <div className="sl p-10">
+              <label htmlFor="Password">Số lượng</label>
+              <input type="text" id="SoLuong" name="SoLuong"></input>
+            </div>
           </div>
 
           <div className="loai p-10">

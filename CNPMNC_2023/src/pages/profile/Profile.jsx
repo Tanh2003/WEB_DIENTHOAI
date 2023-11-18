@@ -39,9 +39,9 @@ export const Profile = () => {
                 <p> 123 Hồng Bàng </p>
               </div>
 
-              <a href="">
+              <Link to="PurchaseHistory">
                 <span>Đơn đặt hàng</span>
-              </a>
+              </Link>
               <a href="./ChangePassword">
                 <span>Thay đổi mật khẩu </span>
               </a>

@@ -22,6 +22,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { IndexAdmin } from "../src/Admin/IndexAdmin";
 import CreateProduct from "./Admin/Create/CreateProduct";
+import PurchaseHistory from "./pages/profile/PurchaseHistory";
 function App() {
   //step 1: fetch data from DB
   const { productItems } = Data;
@@ -139,6 +140,11 @@ function App() {
             <Route path="/profile/ChangePassword" exact>
               <Header cartItem={cartItem} />
               <ChangePassword />
+              <Footer />
+            </Route>
+            <Route path="/profile/PurchaseHistory" exact>
+              <Header cartItem={cartItem} />
+              <PurchaseHistory />
               <Footer />
             </Route>
             <Route path="/cart/Checkout" exact>

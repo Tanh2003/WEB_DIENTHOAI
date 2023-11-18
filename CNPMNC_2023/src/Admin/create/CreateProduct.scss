@@ -17,13 +17,14 @@
         width: 100%;
         padding: 12px 20px;
         margin-top: 5px;
+        font-size: 17px;
         display: inline-block;
         border: 1px solid #ccc;
         border-radius: 4px;
         box-sizing: border-box;
       }
       .sanpham {
-        width: 100%;
+        width: 97%;
         display: inline-block;
         background: white;
       }
@@ -43,7 +44,7 @@
         background: white;
       }
       .anh{   
-        width: 45%;
+        width: 48%;
         display: inline-block;
         background: white;
     }
@@ -59,14 +60,16 @@
       }
       .button {
         background-color: #f44336;
-        color: black;
-        border: 1px solid #333;
+        color: #fff;
+        border: 1px solid #808080;
         border-radius: 10px;
         width: 30%;
+        font-size: 18px;
+        height: 40px;
       }
       
       .button:hover {
-        border: 1px solid #333;
+        border: 1px solid #808080;
         background-color: #04aa6d;
       }
       input[type="submit"]:hover {
