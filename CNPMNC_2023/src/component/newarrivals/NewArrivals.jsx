@@ -1,6 +1,6 @@
 import React from "react";
 import { Cart } from "./Cart";
-import "./NewArrivals.css";
+import "./style.css";
 
 export const NewArrivals = () => {
   return (

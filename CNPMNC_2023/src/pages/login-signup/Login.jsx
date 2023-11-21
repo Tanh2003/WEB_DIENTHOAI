@@ -1,51 +1,59 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import "./LoginSignup.scss";
-import { Link, useHistory, Redirect } from "react-router-dom";
-import { handleLoginApi, getAllUser } from "../../userService";
+import { Link,useHistory,Redirect } from "react-router-dom";
+import {handleLoginApi,getAllUser} from '../../userService';
 
-export const Login = (props) => {
+
+
+
+export const Login =  (props) => {
   const history = useHistory();
 
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [errMessage, setErrMessage] = useState("");
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [errMessage, setErrMessage] = useState('');
+
+
 
   const handleOnChangeUsername = (event) => {
     setUsername(event.target.value);
-  };
+}
 
-  const handleOnChangePassword = (event) => {
+const handleOnChangePassword = (event) => {
     setPassword(event.target.value);
-  };
-  const handleLogin = async () => {
-    setErrMessage("");
+}
+const handleLogin = async () => {
+  setErrMessage('');
 
-    try {
+  try {
       let data = await handleLoginApi(username, password);
       if (data && data.errcode !== 0) {
-        setErrMessage(data.message);
+          setErrMessage(data.message);
       }
       if (data && data.errcode === 0) {
-        localStorage.setItem("user", JSON.stringify(data.user));
 
-        if (data.user.roleId == "R1") {
-          history.replace("/admin"); // Sử dụng replace thay vì push
+        localStorage.setItem('user', JSON.stringify(data.user));
+       
+        if(data.user.roleId=="R1"){
+          history.replace("/admin/user"); // Sử dụng replace thay vì push
           window.location.reload(); // Tải lại trang
-        } else {
+        }else{
           history.replace("/"); // Sử dụng replace thay vì push
           window.location.reload(); // Tải lại trang
         }
-        console.log("login succeed");
+   
+        
+          console.log("login succeeds");
       }
-    } catch (error) {
+  } catch (error) {
       if (error.response) {
-        if (error.response.data) {
-          setErrMessage(error.response.data.message);
-        }
+          if (error.response.data) {
+              setErrMessage(error.response.data.message);
+          }
       }
       console.log("Ntanh", error.response);
-    }
-  };
+  }
+}
 
   const [isShowPassword, setIsShowPassword] = useState(false);
   const handleShowHidePassword = () => {
@@ -58,36 +66,27 @@ export const Login = (props) => {
         <div className="login-container">
           <h1>Đăng nhập</h1>
           <div className="input-data">
-            <input
-              type="text"
-              required
-              value={username}
-              onChange={handleOnChangeUsername}
+            <input type="text" required 
+                value={username}
+                onChange={handleOnChangeUsername}
             />
             <div className="underline"></div>
             <label>Tài khoản </label>
           </div>
-          <div
-            className="input-data d_flex"
-            value={password}
-            onChange={handleOnChangePassword}
+          <div className="input-data"
+           value={password}
+           onChange={handleOnChangePassword}
           >
-           <div className="w-100">
-             <input type={isShowPassword ? "text" : "password"} required />
-             <div className="underline"></div>
+            <input  type={isShowPassword ? 'text' : 'password'} required />
+            <span onClick={handleShowHidePassword}>
+    <i className={isShowPassword ? 'fas fa-eye' : 'fas fa-eye-slash'}></i>
+  </span> 
+            <div className="underline"></div>
             <label>Mật khẩu </label>
-           </div>
-            <div className="">
-               <span onClick={handleShowHidePassword}>
-              <i
-                className={isShowPassword ? "fas fa-eye" : "fas fa-eye-slash"}
-              ></i>
-              </span>
-            </div>
           </div>
-          <div className="col-12" style={{ color: "red" }}>
-            {errMessage}
-          </div>
+          <div className='col-12' style={{ color: 'red' }}>
+                        {errMessage}
+                    </div>
           <button type="submit" id="" name="button" onClick={handleLogin}>
             Đăng nhập
           </button>

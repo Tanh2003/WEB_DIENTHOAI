@@ -9,7 +9,9 @@
   height: auto;
   background: white;
   margin: auto;
-  padding: 40px 40px;
+  padding: 40px 60px;
+}
+.login-container h1 {
 }
 .login-container button {
   width: 100%;
@@ -22,19 +24,21 @@
   font-weight: 500;
 }
 .login-container button:hover {
-  color: #fff;
+  color: #ffd6f4;
   background: #ff4141;
   margin-top: 30px;
   border: none;
   cursor: pointer;
 }
 .signup-container {
-  
   width: 580px;
   height: auto;
   background: white;
   margin: auto;
-  padding: 40px 40px;
+  padding: 40px 60px;
+}
+.signup-container h1 {
+  margin: 20px 0px;
 }
 .signup-container button {
   width: 100%;
@@ -47,7 +51,7 @@
   font-weight: 500;
 }
 .signup-container button:hover {
-  color: #fff;
+  color: #ffd6f4;
   background: #ff4141;
   margin-top: 30px;
   border: none;
@@ -122,5 +126,6 @@
 }
 .loginsignup-signup span {
   color: #ff4141;
+
   font-weight: 600;
 }

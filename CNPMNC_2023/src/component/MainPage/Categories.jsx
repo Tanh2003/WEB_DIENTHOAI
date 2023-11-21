@@ -1,56 +1,46 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
+import { getAllCategories} from "../../userService";
+import { Buffer } from "buffer";
+
+
 export const Categories = () => {
-  const data = [
-    {
-      cateId: 1,
-      cateImg: "./images/category/collection.svg",
-      cateName: "Tất cả sản phẩm",
-    },
-    {
-      cateId: 2,
-      cateImg: "./images/category/phone.png",
-      cateName: "Điện thoại",
-    },
-    {
-      cateId: 3,
-      cateImg: "./images/category/laptop.webp",
-      cateName: "Laptop",
-    },
-    {
-      cateId: 4,
-      cateImg: "./images/category/tablet.webp",
-      cateName: "Tablet",
-    },
-    {
-      cateId: 5,
-      cateImg: "./images/category/watch.webp",
-      cateName: "Đồng hồ",
-    },
-  ];
+  const [arrCategories, setCategories] = useState([]);
+
+  useEffect(() => {
+    getAllCategoriesReact();
+  }, []);
+
+  const getAllCategoriesReact = async () => {
+    let response = await getAllCategories("ALL");
+    if (response && response.errcode === 0) {
+      setCategories(response.categories);
+    }
+  };
+
   return (
     <>
       <div className="category">
-        {data.map((value) => {
-          let toPath;
-          if (value.cateId == 1) {
-            toPath = "/phone";
-          } else if (value.cateId == 2) {
-            toPath = "/phone";
-          } else if (value.cateId == 3) {
-            toPath = "/laptop";
-          } else if (value.cateId == 4) {
-            toPath = "/tablet";
-          } else if (value.cateId == 5) {
-            toPath = "/watch";
+        {arrCategories.map((value, index) => {
+          let imageBase64 = '';
+          if (value.image) {
+            imageBase64 = Buffer.from(value.image, 'base64').toString('binary');
           }
+          console.log(imageBase64);
+
+          let toPath = "/phone";
+          // Map index to corresponding category path
+         
+
+          // Thêm giá trị id vào đường dẫn
+          toPath = `${toPath}/${value.id}`;
 
           return (
-            <Link to={toPath} key={value.cateId}>
+            <Link to={toPath} key={value.id}>
               <div className="box f_flex">
-                <img src={value.cateImg} alt="" />
-                <span>{value.cateName}</span>
+                <img src={imageBase64} alt={`Category ${index + 1}`} />
+                <span>{value.name}</span>
               </div>
             </Link>
           );

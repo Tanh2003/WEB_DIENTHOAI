@@ -1,14 +1,15 @@
 import React, { Component } from "react";
-import "./UserManage.scss";
+
+import "../Admin.css";
 import {
   getAllUser,
   createNewUseService,
   editUserService,
   deleteUserService,
 } from "../../userService";
-// import ModalUser from "./ModalUser";
+import ModalUser from "./ModalUser";
 import { emitter } from "../../utils/emitter";
-// import ModalEditUser from "./ModalEditUser";
+import ModalEditUser from "./ModalEditUser";
 
 import { toast } from "react-toastify";
 
@@ -96,7 +97,7 @@ class UserManage extends Component {
   doEditUser = async (user) => {
     try {
       let res = await editUserService(user);
-      if (res && res.errcode !== 0) {
+      if (res && res.errcode== 0) {
         await this.getAllUserFromReact();
         toast.success("Sửa Thành công");
         this.setState({
@@ -121,7 +122,7 @@ class UserManage extends Component {
     let arrUsers = this.state.arrUsers;
 
     return (
-      <div className="users-container">
+      <div className="hello">
         <ModalUser
           isOpen={this.state.isOpenModalUser}
           toggleFromParent={this.toggleUserModal}
@@ -136,60 +137,76 @@ class UserManage extends Component {
           />
         )}
 
-        <div className="title text-center">Danh sách tài khoản</div>
-        <div>
-          <button
-            className="btn-create btn btn-primary px-3"
-            onClick={() => this.handleAddNewUser()}
-          >
-            <i className="fas fa-user-plus"></i>Thêm khách hàng
-          </button>
-        </div>
+        <div></div>
         <div className="users-table mt-4 mx-3">
-          <table id="customers">
-            <tbody>
-              <tr>
-                <th>Tài Khoản</th>
-                <th>Họ và tên</th>
-                <th>Địa chỉ</th>
-                <th>Số điện thoại</th>
-                <th>email</th>
-                <th>Hành động</th>
-              </tr>
+          <div className="col">
+            <div className="col-md-12">
+              <div className="f-index">
+                <div className="tabular--wrapper">
+                  <button
+                    className=" btn btn-primary px-3"
+                    onClick={() => this.handleAddNewUser()}
+                  >
+                    <i className="fas fa-user-plus"></i>Thêm khách hàng
+                  </button>
+                  <h2 className="h2--title">Danh sách Tài khoản</h2>
 
-              {arrUsers &&
-                arrUsers.map((item, index) => {
-                  return (
-                    <tr key={index}>
-                      <td>{item.taikhoan}</td>
-                      <td>{item.fullName}</td>
-                      <td>{item.address}</td>
-                      <td>{item.phoneNumber}</td>
-                      <td>{item.email}</td>
+                  <div className="table-container">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>Tài Khoản</th>
+                          <th>Họ và tên</th>
+                          <th>Địa chỉ</th>
+                          <th>Số điện thoại</th>
+                          <th>email</th>
+                          <th>Hành động</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {arrUsers &&
+                          arrUsers.map((item, index) => {
+                            return (
+                              <tr key={index}>
+                                <td>{item.taikhoan}</td>
+                                <td>{item.fullName}</td>
+                                <td>{item.address}</td>
+                                <td>{item.phoneNumber}</td>
+                                <td>{item.email}</td>
 
-                      <td>
-                        <button
-                          className="btn-edit"
-                          onClick={() => {
-                            this.handleEditUser(item);
-                          }}
-                        >
-                          <i className="fas fa-pencil-alt"></i>
-                        </button>
-                        <button
-                          className="btn-delete"
-                          onClick={() => {
-                            this.handleDeleteUser(item);
-                          }}
-                        >
-                          <i className="fas fa-trash"></i>
-                        </button>
-                      </td>
-                    </tr>
-                  );
-                })}
-            </tbody>
-          </table>
+                                <td>
+                               
+                                    <button
+                                      className="btn-edit"
+                                      onClick={() => {
+                                        this.handleEditUser(item);
+                                      }}
+                                    >
+                                      <i className="fa-regular fa-pen-to-square"></i>
+                                    </button>
+                                
+                                  <span> </span>
+                               
+                                    <button
+                                      className="btn-del"
+                                      onClick={() => {
+                                        this.handleDeleteUser(item);
+                                      }}
+                                    >
+                                      <i className="fa-regular fa-trash-can"></i>
+                                    </button>
+                                  
+                                </td>
+                              </tr>
+                            );
+                          })}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );

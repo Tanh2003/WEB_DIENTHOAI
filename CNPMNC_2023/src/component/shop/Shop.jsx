@@ -1,7 +1,7 @@
 import React from "react";
 import { Catg } from "./Catg";
 import { ShopCart } from "./ShopCart";
-import "./Shop.css";
+import "./style.css";
 
 export const Shop = ({ shopItems, addToCart }) => {
   return (

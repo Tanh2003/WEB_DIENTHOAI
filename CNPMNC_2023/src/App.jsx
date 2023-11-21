@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import "./App.css";
 import * as React from "react";
 import { Header } from "./common/header/Header";
@@ -12,7 +13,7 @@ import { ProductDetail } from "./pages/productdetail/ProductDetail";
 import { Products } from "./pages/products/Products";
 import PData from "./pages/phone/Pdata";
 import { Phone } from "./pages/phone/Phone";
-import { Order } from "./pages/cart/Checkout";
+import { Order } from "./pages/cart/Order";
 import { Login } from "./pages/login-signup/Login";
 import { Signup } from "./pages/login-signup/Signup";
 import { Profile } from "./pages/profile/Profile";
@@ -21,8 +22,15 @@ import { ChangePassword } from "./pages/profile/ChangePassword";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { IndexAdmin } from "../src/Admin/IndexAdmin";
-import CreateProduct from "./Admin/Create/CreateProduct";
-import PurchaseHistory from "./pages/profile/PurchaseHistory";
+import ProductAdmin from "./Admin/ProductAdmin";
+import CategoriesAdmin from "./Admin/CategoriesAdmin";
+import {  useEffect } from "react";
+import OrderAdmin from "./Admin/OrderAdmin";
+import BrandAdmin from "./Admin/BrandAdmin";
+import { pageSearch } from "./common/header/pageSearch";
+import OrderHistory from "./pages/profile/OrderHistory";
+import OrderDetail from "./pages/profile/OrderDetail";
+import { CartLogin } from "./pages/cart/CartLogin";
 function App() {
   //step 1: fetch data from DB
   const { productItems } = Data;
@@ -30,6 +38,15 @@ function App() {
   const { phoneItems } = PData;
   const [cartItem, setCardItem] = useState([]);
   const [productItem, setProductItem] = useState([]);
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cartItem));
+  }, [cartItem]);
+
+  
+  
+
+
 
   const addToCart = (product) => {
     const productExit = cartItem.find((item) => item.id == product.id);
@@ -68,111 +85,146 @@ function App() {
     }
   };
 
+  const deleteProduct = (product) => {
+    setCardItem(cartItem.filter((item) => item.id !== product.id));
+  };
+  
+
   return (
     <>
       <div>
         <Router>
           <Switch>
-            <Route path="/admin" exact>
-              <IndexAdmin />
-              <ToastContainer
-                position="bottom-right"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="colored"
-              />
+            <Route path="/admin/User" exact>
+             
+            
+                 <IndexAdmin/>
+              
             </Route>
-            <Route path="/create/CreateProduct" exact>
-              <CreateProduct/>
+            <Route path="/admin/product" exact>
+             
+            
+                 <ProductAdmin/>
+              
             </Route>
+            <Route path="/admin/categories" exact>
+             
+            
+             <CategoriesAdmin/>
+          
+        </Route>
+        <Route path="/admin/orders" exact>
+             
+            
+             <OrderAdmin/>
+          
+        </Route>
+        <Route path="/admin/brand" exact>
+             
+            
+             <BrandAdmin/>
+          
+        </Route>
+        
+            <ToastContainer
+              position="bottom-right"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="colored"
+            />
           </Switch>
         </Router>
       </div>
 
       <div>
         <Router>
+        <Header cartItem={cartItem} />
           <Switch>
             <Route path="/" exact>
-              <Header cartItem={cartItem} />
+           
+
               <Pages
                 productItems={productItems}
                 addToCart={addToCart}
                 itemDetail={itemDetail}
                 shopItems={shopItems}
               />
-              <Footer />
             </Route>
             <Route path="/login-signup/Login" exact>
-              <Header cartItem={cartItem} />
               <Login />
-              <Footer />
             </Route>
             <Route path="/login-signup/Signup" exact>
-              <Header cartItem={cartItem} />
               <Signup />
-              <Footer />
             </Route>
             <Route path="/cart/Cart" exact>
-              <Header cartItem={cartItem} />
               <Cart
                 cartItem={cartItem}
                 addToCart={addToCart}
                 decreaseQty={decreaseQty}
+                deleteProduct={deleteProduct}
+                setCardItem={setCardItem}
               />
-              <Footer />
+            </Route>
+            <Route path="/cart-login" exact>
+              <CartLogin
+            
+              
+              />
             </Route>
             <Route path="/profile/Profile" exact>
-              <Header cartItem={cartItem} />
               <Profile />
-              <Footer />
             </Route>
             <Route path="/profile/ProfileUpdate" exact>
-              <Header cartItem={cartItem} />
               <ProfileUpdate />
-              <Footer />
             </Route>
             <Route path="/profile/ChangePassword" exact>
-              <Header cartItem={cartItem} />
               <ChangePassword />
-              <Footer />
-            </Route>
-            <Route path="/profile/PurchaseHistory" exact>
-              <Header cartItem={cartItem} />
-              <PurchaseHistory />
-              <Footer />
             </Route>
             <Route path="/cart/Checkout" exact>
-              <Header cartItem={cartItem} />
               <Order
                 cartItem={cartItem}
                 addToCart={addToCart}
                 decreaseQty={decreaseQty}
+                deleteProduct={deleteProduct}
               />
-              <Footer />
             </Route>
+            <Route path="/profile/OrderHistory" exact>
+              
+              <OrderHistory />
+            
+            </Route>
+            <Route path="/profile/OrderDetail/:id_order" exact>
+              <OrderDetail />
+            </Route>
+
+
+
+
+
+
             <Route path="/productdetail/:id">
-              <Header cartItem={cartItem} />
               <ProductDetail
                 productItems={productItems}
                 addToCart={addToCart}
               />
-              <Footer />
             </Route>
             <Route path="/products">
-              <Header cartItem={cartItem} />
               <Products productItems={productItems} addToCart={addToCart} />
             </Route>
-            <Route path="/phone">
-              <Header cartItem={cartItem} />
+            <Route path="/phone/:id">
               <Phone phoneItems={phoneItems} addToCart={addToCart} />
             </Route>
+
+            <Route path="/pageSearch" component={pageSearch} />
           </Switch>
+          <Footer />
+
           <ToastContainer
             position="bottom-right"
             autoClose={5000}
